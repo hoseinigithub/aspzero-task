@@ -51,6 +51,11 @@ namespace MyCompanyName.AbpZeroTemplate.EntityFrameworkCore
 
         public virtual DbSet<RecentPassword> RecentPasswords { get; set; }
 
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<LoanContract> LoanContracts { get; set; }
+        public DbSet<LoanContractPerson> LoanContractPersons { get; set; }
+
+
         public AbpZeroTemplateDbContext(DbContextOptions<AbpZeroTemplateDbContext> options)
             : base(options)
         {
