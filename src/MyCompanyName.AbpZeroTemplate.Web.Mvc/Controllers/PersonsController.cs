@@ -16,4 +16,18 @@ public class PersonsController : AbpZeroTemplateControllerBase
         var persons = await _personAppService.GetAll();
         return View(persons);
     }
+
+    [HttpGet]
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(string fullName)
+    {
+        await _personAppService.Create(fullName);
+        return RedirectToAction("Index");
+    }
+
 }
