@@ -1,0 +1,32 @@
+﻿@{
+    var persons = ViewBag.Persons as List<Person>;
+}
+
+<h2>ایجاد قرارداد وام</h2>
+
+<form method="post">
+    <input name="title" class="form-control" placeholder="عنوان قرارداد" />
+
+    <br />
+
+    <label>وام‌گیرنده</label>
+    <select name="borrowerId" class="form-control">
+        @foreach (var p in persons)
+        {
+            <option value="@p.Id">@p.FullName</option>
+        }
+    </select>
+
+    <br />
+
+    <label>ضامن‌ها</label>
+    <select name="guarantorIds" multiple class="form-control">
+        @foreach (var p in persons)
+        {
+            <option value="@p.Id">@p.FullName</option>
+        }
+    </select>
+
+    <br />
+    <button class="btn btn-primary">ثبت</button>
+</form>

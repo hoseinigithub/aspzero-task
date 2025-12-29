@@ -1,0 +1,25 @@
+﻿@model List<LoanContract>
+
+<h2>لیست قراردادها</h2>
+
+<a href="/LoanContracts/Create" class="btn btn-success">قرارداد جدید</a>
+
+<table class="table">
+    <tr>
+        <th>عنوان</th>
+        <th>افراد</th>
+    </tr>
+
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.ContractTitle</td>
+            <td>
+                @foreach (var p in c.LoanContractPersons)
+                {
+                    <div>@p.Person.FullName - @p.Role</div>
+                }
+            </td>
+        </tr>
+    }
+</table>
