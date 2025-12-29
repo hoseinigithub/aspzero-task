@@ -4,18 +4,24 @@
 <br />
 <br />
 
-
 <h2>لیست افراد</h2>
 
 <table class="table">
-    <tr>
-        <th>نام</th>
-    </tr>
-
-    @foreach (var p in Model)
-    {
+    <thead>
         <tr>
-            <td>@p.FullName</td>
+            <th>نام</th>
+            <th>عملیات</th> <!-- ستون جدید برای دکمه جزئیات -->
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.FullName</td>
+                <td>
+                    <a class="btn btn-info" href="/Persons/Details/@p.Id">جزئیات</a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

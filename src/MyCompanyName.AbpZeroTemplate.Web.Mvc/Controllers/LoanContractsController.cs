@@ -34,4 +34,11 @@ public class LoanContractsController : AbpZeroTemplateControllerBase
         await _service.Create(title, borrowerId, guarantorIds);
         return RedirectToAction("Index");
     }
+
+    public async Task<IActionResult> Details(int id)
+    {
+        var data = await _service.GetDetails(id);
+        return View(data);
+    }
+
 }

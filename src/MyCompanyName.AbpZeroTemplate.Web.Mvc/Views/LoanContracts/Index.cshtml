@@ -5,21 +5,28 @@
 <a href="/LoanContracts/Create" class="btn btn-success">قرارداد جدید</a>
 
 <table class="table">
-    <tr>
-        <th>عنوان</th>
-        <th>افراد</th>
-    </tr>
-
-    @foreach (var c in Model)
-    {
+    <thead>
         <tr>
-            <td>@c.ContractTitle</td>
-            <td>
-                @foreach (var p in c.LoanContractPersons)
-                {
-                    <div>@p.Person.FullName - @p.Role</div>
-                }
-            </td>
+            <th>عنوان</th>
+            <th>افراد</th>
+            <th>عملیات</th> <!-- ستون جدید برای دکمه جزئیات -->
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.ContractTitle</td>
+                <td>
+                    @foreach (var p in c.LoanContractPersons)
+                    {
+                        <div>@p.Person.FullName - @p.Role</div>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-info" href="/LoanContracts/Details/@c.Id">جزئیات</a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

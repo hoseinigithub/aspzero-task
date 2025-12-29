@@ -13,11 +13,10 @@ public class PersonsController : AbpZeroTemplateControllerBase
 
     public async Task<IActionResult> Index()
     {
-        var persons = await _personAppService.GetAll();
-        return View(persons);
+        var data = await _personAppService.GetAll();
+        return View(data);
     }
 
-    [HttpGet]
     public IActionResult Create()
     {
         return View();
@@ -30,4 +29,9 @@ public class PersonsController : AbpZeroTemplateControllerBase
         return RedirectToAction("Index");
     }
 
+    public async Task<IActionResult> Details(int id)
+    {
+        var data = await _personAppService.GetDetails(id);
+        return View(data);
+    }
 }

@@ -7,5 +7,6 @@ public class LoanContractPerson : Entity<int>
 
     public int LoanContractId { get; set; }
     public LoanContract LoanContract { get; set; }
-    public string Role { get; set; } 
+
+    public PersonRole Role { get; set; }
 }

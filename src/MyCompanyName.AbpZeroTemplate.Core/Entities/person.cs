@@ -1,9 +1,9 @@
-﻿using Abp.Domain.Entities.Auditing;
+﻿using Abp.Domain.Entities;
 using System.Collections.Generic;
 
-public class Person : FullAuditedEntity<int>
+public class Person : Entity<int>
 {
     public string FullName { get; set; }
 
-    public virtual ICollection<LoanContractPerson> LoanContractPersons { get; set; }
+    public ICollection<LoanContractPerson> LoanContractPersons { get; set; }
 }

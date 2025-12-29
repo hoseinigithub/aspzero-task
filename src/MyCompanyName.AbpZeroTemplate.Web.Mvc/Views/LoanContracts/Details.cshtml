@@ -1,0 +1,23 @@
+﻿@model LoanContractDetailsDto
+
+<h2>جزئیات قرارداد: @Model.ContractTitle</h2>
+<p>تاریخ: @Model.ContractDate.ToShortDateString()</p>
+
+<h4>افراد مرتبط با قرارداد:</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>نام فرد</th>
+            <th>نقش</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Persons)
+        {
+            <tr>
+                <td>@p.FullName</td>
+                <td>@p.Role</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,34 @@
+﻿@model PersonDetailsDto
+@using System.Linq
+
+<h2>جزئیات فرد: @Model.FullName</h2>
+
+<h4>وام‌هایی که به عنوان وام‌گیرنده داشته:</h4>
+@if (Model.BorrowerContracts != null && Model.BorrowerContracts.Any())
+{
+    <ul>
+        @foreach (var c in Model.BorrowerContracts)
+        {
+            <li>@c.ContractTitle - @c.ContractDate.ToShortDateString()</li>
+        }
+    </ul>
+}
+else
+{
+    <p>هیچ وامی ندارد.</p>
+}
+
+<h4>قراردادهایی که به عنوان ضامن حضور داشته:</h4>
+@if (Model.GuarantorContracts != null && Model.GuarantorContracts.Any())
+{
+    <ul>
+        @foreach (var c in Model.GuarantorContracts)
+        {
+            <li>@c.ContractTitle - @c.ContractDate.ToShortDateString()</li>
+        }
+    </ul>
+}
+else
+{
+    <p>هیچ قراردادی به عنوان ضامن ندارد.</p>
+}
