@@ -15,6 +15,22 @@ namespace MyCompanyName.AbpZeroTemplate.Web.Areas.AppAreaName.Startup
 
             menu
                 .AddItem(new MenuItemDefinition(
+                      "Persons",          
+                      L("افراد"),        
+                      url: "AppAreaName/Persons", 
+                      icon: "fa fa-users"       
+                     )
+                )
+
+            .AddItem(new MenuItemDefinition(
+                    "LoanContracts",
+                    L("قراردادهای وام"),
+                    url: "AppAreaName/LoanContracts",
+                    icon: "fa fa-file-contract"
+                )
+            )
+
+                .AddItem(new MenuItemDefinition(
                         AppAreaNamePageNames.Host.Dashboard,
                         L("Dashboard"),
                         url: "AppAreaName/HostDashboard",

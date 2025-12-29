@@ -3,7 +3,10 @@ using MyCompanyName.AbpZeroTemplate.Web.Controllers;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-public class LoanContractsController : AbpZeroTemplateControllerBase
+namespace MyCompanyName.AbpZeroTemplate.Web.Areas.AppAreaName.Controllers;
+
+    [Area("AppAreaName")]
+    public class LoanContractsController : AbpZeroTemplateControllerBase
 {
     private readonly LoanContractAppService _service;
     private readonly PersonAppService _personService;

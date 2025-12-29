@@ -2,7 +2,10 @@
 using MyCompanyName.AbpZeroTemplate.Web.Controllers;
 using System.Threading.Tasks;
 
-public class PersonsController : AbpZeroTemplateControllerBase
+namespace MyCompanyName.AbpZeroTemplate.Web.Areas.AppAreaName.Controllers;
+
+  [Area("AppAreaName")]
+    public class PersonsController : AbpZeroTemplateControllerBase
 {
     private readonly PersonAppService _personAppService;
 
