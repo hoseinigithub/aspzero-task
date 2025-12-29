@@ -1,0 +1,16 @@
+﻿@model List<Person>
+
+<h2>لیست افراد</h2>
+
+<table class="table">
+    <tr>
+        <th>نام</th>
+    </tr>
+
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.FullName</td>
+        </tr>
+    }
+</table>

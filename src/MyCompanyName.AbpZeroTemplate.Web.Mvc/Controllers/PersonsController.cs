@@ -1,0 +1,19 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using MyCompanyName.AbpZeroTemplate.Web.Controllers;
+using System.Threading.Tasks;
+
+public class PersonsController : AbpZeroTemplateControllerBase
+{
+    private readonly PersonAppService _personAppService;
+
+    public PersonsController(PersonAppService personAppService)
+    {
+        _personAppService = personAppService;
+    }
+
+    public async Task<IActionResult> Index()
+    {
+        var persons = await _personAppService.GetAll();
+        return View(persons);
+    }
+}
