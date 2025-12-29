@@ -2,31 +2,52 @@
     var persons = ViewBag.Persons as List<Person>;
 }
 
-<h2>ایجاد قرارداد وام</h2>
+<abp-page-subheader title="ایجاد قرارداد وام" description="ایجاد یک قرارداد جدید">
+</abp-page-subheader>
 
-<form method="post">
-    <input name="title" class="form-control" placeholder="عنوان قرارداد" />
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
 
-    <br />
+            <div class="mb-4">
+                <a href="/AppAreaName/LoanContracts/Index" class="btn btn-secondary">
+                    <i class="fa fa-arrow-left btn-md-icon"></i>
+                    <span class="d-none d-md-inline-block">بازگشت به لیست قراردادها</span>
+                </a>
+            </div>
 
-    <label>وام‌گیرنده</label>
-    <select name="borrowerId" class="form-control">
-        @foreach (var p in persons)
-        {
-            <option value="@p.Id">@p.FullName</option>
-        }
-    </select>
 
-    <br />
+            <form method="post">
+                <div class="mb-3">
+                    <label class="form-label">عنوان قرارداد</label>
+                    <input name="title" class="form-control" placeholder="عنوان قرارداد" />
+                </div>
 
-    <label>ضامن‌ها</label>
-    <select name="guarantorIds" multiple class="form-control">
-        @foreach (var p in persons)
-        {
-            <option value="@p.Id">@p.FullName</option>
-        }
-    </select>
+                <div class="mb-3">
+                    <label class="form-label">وام‌گیرنده</label>
+                    <select name="borrowerId" class="form-select">
+                        @foreach (var p in persons)
+                        {
+                            <option value="@p.Id">@p.FullName</option>
+                        }
+                    </select>
+                </div>
 
-    <br />
-    <button class="btn btn-primary">ثبت</button>
-</form>
+                <div class="mb-3">
+                    <label class="form-label">ضامن‌ها</label>
+                    <select name="guarantorIds" multiple class="form-select">
+                        @foreach (var p in persons)
+                        {
+                            <option value="@p.Id">@p.FullName</option>
+                        }
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-plus btn-md-icon"></i>
+                    <span class="d-none d-md-inline-block">ثبت قرارداد</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

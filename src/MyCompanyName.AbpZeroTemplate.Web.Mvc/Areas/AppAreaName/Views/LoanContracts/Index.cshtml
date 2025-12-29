@@ -1,32 +1,41 @@
 ﻿@model List<LoanContract>
 
-<h2>لیست قراردادها</h2>
+<abp-page-subheader title="لیست قراردادها" description="قراردادهای ثبت‌شده سیستم">
 
-<a href="/LoanContracts/Create" class="btn btn-success">قرارداد جدید</a>
+    <a href="LoanContracts/Create" class="btn btn-success">
+        <i class="fa fa-plus btn-md-icon"></i>
+        <span class="d-none d-md-inline-block">قرارداد جدید</span>
+    </a>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>عنوان</th>
-            <th>افراد</th>
-            <th>عملیات</th> <!-- ستون جدید برای دکمه جزئیات -->
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var c in Model)
-        {
-            <tr>
-                <td>@c.ContractTitle</td>
-                <td>
-                    @foreach (var p in c.LoanContractPersons)
+</abp-page-subheader>
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body table-responsive">
+            <table class="table align-middle table-row-dashed fs-6 gy-5">
+                <thead>
+                    <tr>
+                        <th>عنوان</th>
+                        <th>افراد</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var c in Model)
                     {
-                        <div>@p.Person.FullName - @p.Role</div>
+                        <tr>
+                            <td>@c.ContractTitle</td>
+                            <td>
+                                @foreach (var p in c.LoanContractPersons)
+                                {
+                                    <div>@p.Person.FullName - @p.Role</div>
+                                }
+                            </td>
+   
+                        </tr>
                     }
-                </td>
-                <td>
-                    <a class="btn btn-info" href="/LoanContracts/Details/@c.Id">جزئیات</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,23 +1,47 @@
 ﻿@model LoanContractDetailsDto
 
-<h2>جزئیات قرارداد: @Model.ContractTitle</h2>
-<p>تاریخ: @Model.ContractDate.ToShortDateString()</p>
+<abp-page-subheader title="جزئیات قرارداد" description="@Model.ContractTitle">
+</abp-page-subheader>
 
-<h4>افراد مرتبط با قرارداد:</h4>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>نام فرد</th>
-            <th>نقش</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var p in Model.Persons)
-        {
-            <tr>
-                <td>@p.FullName</td>
-                <td>@p.Role</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="container-fluid">
+
+    <div class="mb-4">
+        <a href="/AppAreaName/LoanContracts/Index" class="btn btn-secondary">
+            <i class="fa fa-arrow-left btn-md-icon"></i>
+            <span class="d-none d-md-inline-block">بازگشت به لیست قراردادها</span>
+        </a>
+    </div>
+    <div class="card mb-5">
+        <div class="card-body">
+            <div class="mb-3">
+                <strong>عنوان قرارداد:</strong> @Model.ContractTitle
+            </div>
+            <div class="mb-3">
+                <strong>تاریخ قرارداد:</strong> @Model.ContractDate.ToShortDateString()
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body table-responsive">
+            <h4 class="mb-3">افراد مرتبط با قرارداد:</h4>
+            <table class="table align-middle table-row-dashed fs-6 gy-5">
+                <thead>
+                    <tr>
+                        <th>نام فرد</th>
+                        <th>نقش</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in Model.Persons)
+                    {
+                        <tr>
+                            <td>@p.FullName</td>
+                            <td>@p.Role</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

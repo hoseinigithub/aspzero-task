@@ -1,11 +1,28 @@
-﻿<h2>ایجاد فرد جدید</h2>
+﻿
 
-<form method="post">
-    <div class="form-group">
-        <label>نام فرد</label>
-        <input name="fullName" class="form-control" />
+<abp-page-subheader title="ایجاد فرد جدید" description="فرم ثبت فرد جدید">
+
+    <a class="btn btn-secondary" href="/AppAreaName/Persons">
+        <i class="fa fa-arrow-left"></i>
+        بازگشت به لیست
+    </a>
+
+</abp-page-subheader>
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="FullName" class="form-label">نام فرد</label>
+                    <input id="FullName" name="FullName" class="form-control" placeholder="نام و نام خانوادگی را وارد کنید" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-check"></i>
+                    ثبت
+                </button>
+            </form>
+        </div>
     </div>
-
-    <br />
-    <button type="submit" class="btn btn-primary">ثبت</button>
-</form>
+</div>

@@ -1,27 +1,51 @@
 ﻿@model List<Person>
+@using MyCompanyName.AbpZeroTemplate.Web.Areas.AppAreaName.Startup
 
-<a class="btn btn-success" href="/Persons/Create">افزودن فرد جدید</a>
-<br />
-<br />
+@{
+    ViewBag.CurrentPageName = "Persons"; 
+}
 
-<h2>لیست افراد</h2>
+@section Styles {
+    <link rel="stylesheet" abp-href="/view-resources/Areas/AppAreaName/Views/_Bundles/tenant-list.css" asp-append-version="true" />
+}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>نام</th>
-            <th>عملیات</th> <!-- ستون جدید برای دکمه جزئیات -->
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var p in Model)
-        {
-            <tr>
-                <td>@p.FullName</td>
-                <td>
-                    <a class="btn btn-info" href="/Persons/Details/@p.Id">جزئیات</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@section Scripts {
+    <script abp-src="/view-resources/Areas/AppAreaName/Views/_Bundles/tenant-index-libs.js" asp-append-version="true"></script>
+}
+
+<abp-page-subheader title="افراد" description="لیست افراد سیستم">
+    <a class="btn btn-success" href="Persons/Create">
+        <i class="fa fa-plus btn-md-icon"></i>
+        <span class="d-none d-md-inline-block">افزودن فرد جدید</span>
+    </a>
+</abp-page-subheader>
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table align-middle table-row-dashed fs-6 gy-5">
+                    <thead>
+                        <tr>
+                            <th>نام</th>
+                            <th>عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var p in Model)
+                        {
+                            <tr>
+                                <td>@p.FullName</td>
+                                <td>
+                                    <a class="btn btn-info btn-sm" href="Persons/Details/@p.Id">
+                                        جزئیات
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

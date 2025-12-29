@@ -1,34 +1,51 @@
 ﻿@model PersonDetailsDto
 @using System.Linq
 
-<h2>جزئیات فرد: @Model.FullName</h2>
+<abp-page-subheader title="جزئیات فرد" description="@Model.FullName">
+    <a class="btn btn-secondary" href="Persons/Index">
+        <i class="fa fa-arrow-left"></i>
+        بازگشت به لیست
+    </a>
+</abp-page-subheader>
 
-<h4>وام‌هایی که به عنوان وام‌گیرنده داشته:</h4>
-@if (Model.BorrowerContracts != null && Model.BorrowerContracts.Any())
-{
-    <ul>
-        @foreach (var c in Model.BorrowerContracts)
-        {
-            <li>@c.ContractTitle - @c.ContractDate.ToShortDateString()</li>
-        }
-    </ul>
-}
-else
-{
-    <p>هیچ وامی ندارد.</p>
-}
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
 
-<h4>قراردادهایی که به عنوان ضامن حضور داشته:</h4>
-@if (Model.GuarantorContracts != null && Model.GuarantorContracts.Any())
-{
-    <ul>
-        @foreach (var c in Model.GuarantorContracts)
-        {
-            <li>@c.ContractTitle - @c.ContractDate.ToShortDateString()</li>
-        }
-    </ul>
-}
-else
-{
-    <p>هیچ قراردادی به عنوان ضامن ندارد.</p>
-}
+            <h4>وام‌هایی که به عنوان وام‌گیرنده داشته:</h4>
+            @if (Model.BorrowerContracts != null && Model.BorrowerContracts.Any())
+            {
+                <ul class="list-group mb-4">
+                    @foreach (var c in Model.BorrowerContracts)
+                    {
+                        <li class="list-group-item">
+                            <strong>@c.ContractTitle</strong> - @c.ContractDate.ToShortDateString()
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>هیچ وامی ندارد.</p>
+            }
+
+            <h4>قراردادهایی که به عنوان ضامن حضور داشته:</h4>
+            @if (Model.GuarantorContracts != null && Model.GuarantorContracts.Any())
+            {
+                <ul class="list-group">
+                    @foreach (var c in Model.GuarantorContracts)
+                    {
+                        <li class="list-group-item">
+                            <strong>@c.ContractTitle</strong> - @c.ContractDate.ToShortDateString()
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>هیچ قراردادی به عنوان ضامن ندارد.</p>
+            }
+
+        </div>
+    </div>
+</div>
